@@ -1,0 +1,44 @@
+.left-bar {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(33, 9, 47, 1);
+  left: 0px;
+  z-index: 1;
+  position: relative;
+}
+
+.purple,
+.blue,
+.orange {
+  width: 247px;
+  height: 656px;
+  /* transform: rotate(45deg); */
+  opacity: 0.85;
+  position: absolute;
+  border-radius: 100%;
+  /* filter: blur(135px); */
+  filter: blur(135px);
+}
+
+.blue {
+  background-color: rgba(71, 162, 255, 1);
+  top: 120px;
+}
+
+.purple {
+  background-color: rgba(213, 58, 255, 1);
+  top: 0px;
+}
+
+.orange {
+  background-color: rgba(255, 131, 74, 1);
+  right: 0px;
+}
+
+@media only screen and (max-width: 400px) {
+  .left-bar {
+    height: 240px;
+    width: 100vw;
+  }
+}
