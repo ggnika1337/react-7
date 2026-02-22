@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./Inputs.css";
 
-function Inputs() {
-  useState;
-
+function Inputs({ setYear, setMonth, setNumbers, setCardholderName, setCVC }) {
   return (
     <form>
       <div className="input-container">
@@ -17,6 +15,7 @@ function Inputs() {
           id="cardholderName"
           placeholder="e.g. Jane Appleseed"
           required
+          onChange={(e) => setCardholderName(e.target.value)}
         />
       </div>
 
@@ -26,11 +25,13 @@ function Inputs() {
         </label>
         <input
           className="big-inputs"
-          type="number"
+          type="text"
           name="cardNumber"
           id="cardNumber"
           placeholder="e.g. 1234 5678 9123 0000"
           required
+          onChange={(e) => setNumbers(e.target.value)}
+          maxLength={16}
         />
       </div>
 
@@ -46,6 +47,7 @@ function Inputs() {
               placeholder="MM"
               maxLength={2}
               required
+              onChange={(e) => setMonth(e.target.value)}
             />
             <input
               className="small-input"
@@ -55,6 +57,7 @@ function Inputs() {
               placeholder="YY"
               maxLength={2}
               required
+              onChange={(e) => setYear(e.target.value)}
             />
           </div>
         </div>
@@ -71,6 +74,7 @@ function Inputs() {
             placeholder="e.g. 123"
             maxLength={4}
             required
+            onChange={(e) => setCVC(e.target.value)}
           />
         </div>
       </div>

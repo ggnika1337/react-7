@@ -1,13 +1,12 @@
 import React from "react";
 import "./Bar.css";
+import Ovals from "../../__atoms/ColoredOvals/Ovals";
 
 function Bar() {
   return (
     <>
       <div className="left-bar">
-        <div className="purple"></div>
-        <div className="blue"></div>
-        <div className="orange"></div>
+        <Ovals />
       </div>
     </>
   );

@@ -26,7 +26,22 @@
   padding-left: 24px;
 }
 
-@media only screen and (max-width: 400px) {
+.cards {
+  display: flex;
+  gap: 37px;
+  position: absolute;
+  flex-direction: column;
+  z-index: 2;
+  left: 10vw;
+  top: 145px;
+  transition: 0s;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 605px) {
   #root {
     flex-direction: column;
     gap: 91px;
