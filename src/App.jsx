@@ -11,6 +11,14 @@ function App() {
   const [year, setYear] = useState("00");
   const [CVC, setCVC] = useState("000");
 
+  const [errors, setErrors] = [
+    {
+      onlyLetters: "Wrong format, letters only!",
+      onlyNumbers: "Wrong format, numbers only!",
+      cantBlank: "Can’t be blank!",
+    },
+  ];
+
   useEffect(() => {
     if (cardholderName.length === 0) {
       setCardholderName("JANE APPLESEED");

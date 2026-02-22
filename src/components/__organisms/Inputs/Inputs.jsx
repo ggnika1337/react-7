@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import "./Inputs.css";
 
-function Inputs({ setYear, setMonth, setNumbers, setCardholderName, setCVC }) {
+function Inputs({
+  setYear,
+  setMonth,
+  setNumbers,
+  setCardholderName,
+  setCVC,
+  cardholderError,
+}) {
+  function submit(e) {
+    e.preventDefault();
+    console.log("submit");
+  }
   return (
-    <form>
+    <form onSubmit={submit}>
       <div className="input-container">
         <label htmlFor="cardholderName" className="text" required>
           CARDHOLDER NAME
@@ -17,6 +28,7 @@ function Inputs({ setYear, setMonth, setNumbers, setCardholderName, setCVC }) {
           required
           onChange={(e) => setCardholderName(e.target.value)}
         />
+        <h1 className="error">{cardholderError}</h1>
       </div>
 
       <div className="input-container">
@@ -33,6 +45,7 @@ function Inputs({ setYear, setMonth, setNumbers, setCardholderName, setCVC }) {
           onChange={(e) => setNumbers(e.target.value)}
           maxLength={16}
         />
+        <h1 className="error"></h1>
       </div>
 
       <div className="small-medium">
@@ -60,6 +73,7 @@ function Inputs({ setYear, setMonth, setNumbers, setCardholderName, setCVC }) {
               onChange={(e) => setYear(e.target.value)}
             />
           </div>
+          <h1 className="error"></h1>
         </div>
 
         <div className="input-container">
@@ -76,6 +90,7 @@ function Inputs({ setYear, setMonth, setNumbers, setCardholderName, setCVC }) {
             required
             onChange={(e) => setCVC(e.target.value)}
           />
+          <h1 className="error"></h1>
         </div>
       </div>
 

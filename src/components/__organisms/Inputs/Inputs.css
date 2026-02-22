@@ -74,3 +74,11 @@ button {
 button:hover {
   background-color: rgba(15, 87, 23, 0.932);
 }
+
+.error {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(255, 80, 80, 1);
+  display: none;
+}
