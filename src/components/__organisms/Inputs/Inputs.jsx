@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Inputs.css";
+import { useRef } from "react";
 
 function Inputs({
   setYear,
@@ -7,11 +8,24 @@ function Inputs({
   setNumbers,
   setCardholderName,
   setCVC,
-  cardholderError,
+  cardholderErrors,
+  handleChecks,
+  CVCError,
+  yearError,
+  monthError,
+  numberErrors,
+  bigInputsClass,
+  bigInputsClass2,
+  smallInputsClass,
+  smallInputsClass2,
+  mediumInputClass,
 }) {
+  const [formSubmitted, setFormSubmitted] = useState(null);
+
   function submit(e) {
     e.preventDefault();
-    console.log("submit");
+    setFormSubmitted(true);
+    handleChecks();
   }
   return (
     <form onSubmit={submit}>
@@ -20,7 +34,7 @@ function Inputs({
           CARDHOLDER NAME
         </label>
         <input
-          className="big-inputs"
+          className={bigInputsClass}
           type="text"
           name="cardholderName"
           id="cardholderName"
@@ -28,7 +42,7 @@ function Inputs({
           required
           onChange={(e) => setCardholderName(e.target.value)}
         />
-        <h1 className="error">{cardholderError}</h1>
+        <h1 className="error">{cardholderErrors}</h1>
       </div>
 
       <div className="input-container">
@@ -36,7 +50,7 @@ function Inputs({
           CARD NUMBER
         </label>
         <input
-          className="big-inputs"
+          className={bigInputsClass2}
           type="text"
           name="cardNumber"
           id="cardNumber"
@@ -45,7 +59,7 @@ function Inputs({
           onChange={(e) => setNumbers(e.target.value)}
           maxLength={16}
         />
-        <h1 className="error"></h1>
+        <h1 className="error">{numberErrors}</h1>
       </div>
 
       <div className="small-medium">
@@ -53,7 +67,7 @@ function Inputs({
           <label className="text">EXP. DATE (MM/YY)</label>
           <div className="smalls">
             <input
-              className="small-input"
+              className={smallInputsClass}
               type="text"
               name="expMonth"
               id="expMonth"
@@ -63,7 +77,7 @@ function Inputs({
               onChange={(e) => setMonth(e.target.value)}
             />
             <input
-              className="small-input"
+              className={smallInputsClass2}
               type="text"
               name="expYear"
               id="expYear"
@@ -73,7 +87,8 @@ function Inputs({
               onChange={(e) => setYear(e.target.value)}
             />
           </div>
-          <h1 className="error"></h1>
+          <h1 className="error">{yearError}</h1>
+          <h1 className="error">{monthError}</h1>
         </div>
 
         <div className="input-container">
@@ -81,7 +96,7 @@ function Inputs({
             CVC
           </label>
           <input
-            className="medium-input"
+            className={mediumInputClass}
             type="text"
             name="cvc"
             id="cvc"
@@ -90,11 +105,13 @@ function Inputs({
             required
             onChange={(e) => setCVC(e.target.value)}
           />
-          <h1 className="error"></h1>
+          <h1 className="error">{CVCError}</h1>
         </div>
       </div>
 
-      <button type="submit">Confirm</button>
+      <button onClick={handleChecks} type="submit">
+        Confirm
+      </button>
     </form>
   );
 }
