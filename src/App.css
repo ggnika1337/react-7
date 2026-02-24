@@ -32,7 +32,7 @@
   position: absolute;
   flex-direction: column;
   z-index: 2;
-  left: 10vw;
+  left: 3vw;
   top: 145px;
   transition: 0s;
 }
